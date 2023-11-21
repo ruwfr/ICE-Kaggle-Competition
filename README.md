@@ -9,4 +9,4 @@
 5. Disable Internet Access in "Notebook options".
 6. Set the `is_submission` flag to True.
 7. Make sure the Notebbok runs without Error and produces the same Output as the `sample_submission.csv` found in "Data".
-8. Click on Submit To Competetion -> Submit.
+8. Click "Submit" in "Submit To Competition".
