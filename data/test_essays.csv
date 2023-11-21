@@ -1,4 +1,3 @@
-id,prompt_id,text
-0000aaaa,2,Aaa bbb ccc.
-1111bbbb,3,Bbb ccc ddd.
-2222cccc,4,CCC ddd eee.
+version https://git-lfs.github.com/spec/v1
+oid sha256:7838118ef1b14ba21220ab6cf5e57debd79fd84733dac4d08260ff644b6d627e
+size 90
