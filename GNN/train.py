@@ -33,7 +33,6 @@ def edges_mapping(vocab_len, content, ngram):
 
 
 def get_time_dif(start_time):
-    """获取已使用时间"""
     end_time = time.time()
     time_dif = end_time - start_time
     return datetime.timedelta(seconds=int(round(time_dif)))
@@ -198,41 +197,3 @@ def word_eval():
     sort_results = sorted(results.items(), key=lambda d: d[1])
 
     print(sort_results)
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--ngram', required=False, type=int, default=4, help='ngram number')
-    parser.add_argument('--name', required=False, type=str, default='temp_model', help='project name')
-    parser.add_argument('--bar', required=False, type=int, default=0, help='show bar')
-    parser.add_argument('--dropout', required=False, type=float, default=0.5, help='dropout rate')
-    parser.add_argument('--dataset', required=True, type=str, help='dataset')
-    parser.add_argument('--edges', required=False, type=int, default=1, help='trainable edges')
-    parser.add_argument('--rand', required=False, type=int, default=7, help='rand_seed')
-
-    args = parser.parse_args()
-
-    print('ngram: %d' % args.ngram)
-    print('project_name: %s' % args.name)
-    print('dataset: %s' % args.dataset)
-    print('trainable_edges: %s' % args.edges)
-    # #
-    SEED = args.rand
-    torch.manual_seed(SEED)
-    torch.cuda.manual_seed(SEED)
-    np.random.seed(SEED)
-    random.seed(SEED)
-
-    if args.bar == 1:
-        bar = True
-    else:
-        bar = False
-    
-    if args.edges == 1:
-        edges = True
-        print('trainable edges')
-    else:
-        edges = False
-
-    model = train(args.ngram, args.name, bar, args.dropout, dataset=args.dataset, is_cuda=True, edges=edges)
-    print('test acc: ', test(model, args.dataset).numpy())

@@ -22,7 +22,3 @@ class GraphBuilder(object):
             torch.Tensor(self.graph.number_of_edges(), 1)
 
         )
-
-
-if __name__ == '__main__':
-    pass
